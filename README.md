@@ -1,4 +1,12 @@
-#Mocka um dataset para Porto Alegre
+# Prova de Conceito para Análise Preditiva de Hotspots Criminais e Otimização de Despacho de Viaturas
+Autor: Fábio Viegas e João Luiz Scherer Filho
+# Definição do Problema
+Nos centros urbanos modernos, as operações de segurança pública são frequentemente reativas. Os centros de comando (como o COPOM) respondem a ocorrências à medida que são reportadas, muitas vezes com informações incompletas. O despacho de viaturas, um pilar dessa resposta, nem sempre é otimizado, baseando-se em zonas de patrulha fixas ou na percepção do operador sobre a unidade mais próxima, sem considerar a posição exata de todas as viaturas disponíveis em tempo real.
+## Justificativa
+A deficiência na análise de padrões criminais e a otimização subótima do despacho de recursos levam a um aumento no tempo de resposta. Cada segundo economizado na chegada a uma ocorrência crítica (como um disparo de arma de fogo) impacta diretamente a segurança dos cidadãos, a dos próprios policiais e a probabilidade de captura dos suspeitos
+# Arquitetura e Metodologia
+Como uma PoC acadêmica, o foco foi validar a lógica de IA sem o overhead de hardware físico ou pipelines de streaming complexos. O ambiente de desenvolvimento foi o Google Colab
+# Mocka um dataset para Porto Alegre
 Sensores de Disparo (ex: ShotSpotter): Dispositivos IoT que detectam o som de um disparo de arma de fogo e reportam a localização (latitude/longitude) e o horário.
 
 GPS das Viaturas: Cada viatura reporta sua localização (latitude/longitude) e seu status (ex: 'disponível', 'em ocorrência') em tempo real.
@@ -106,7 +114,7 @@ def gerar_dados_shotspotter(num_ocorrencias=5000, num_hotspots=4, lat_base=LAT_B
     Iniciando a geração dos datasets (Localização: Porto Alegre, RS)...
 
 
-#Gera dados das Viaturas
+# Gera dados das Viaturas
 
 
 ```python
@@ -174,7 +182,7 @@ print("\n--- Amostra Viaturas (GPS) ---")
 print(df_viaturas.head())
 ```
 
-#Instalação de bibliotecas (se necessário) e Imports
+# Instalação de bibliotecas (se necessário) e Imports
 
 
 ```python
@@ -249,7 +257,7 @@ print(f"Análise concluída. Encontrados {num_hotspots} hotspots principais.")
 print(df_ocorrencias['hotspot_id'].value_counts())
 ```
 
-#Visualização (Dashboard Interativo com Folium)
+# Visualização (Dashboard Interativo com Folium)
 
 
 ```python
@@ -327,7 +335,7 @@ def despachar_viatura_mais_proxima(nova_ocorrencia, df_viaturas_atual):
     return viatura_selecionada, distancia_minima
 ```
 
-#Executando a Simulação de Despacho
+# Executando a Simulação de Despacho
 
 
 ```python
